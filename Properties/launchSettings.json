@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "xmlnodes": {
+      "commandName": "Project",
+      "commandLineArgs": "--file sample.xml"
+    }
+  }
+}
