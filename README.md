@@ -21,7 +21,6 @@ Commands:
 
 ```
 
-
 The output below displays the nodes and attributes.
 
 ```text
@@ -29,7 +28,6 @@ The output below displays the nodes and attributes.
 >>  Indicates attributes
 =   Indicates value of node or attribute
 ```
-
 
 ## output
 
@@ -51,4 +49,4 @@ catalog > book > publish_date = 2000-12-16
 catalog > book > description = A former architect battles corporate zombies,
       an evil sorceress, and her own childhood to become queen
       of the world.
-```      
+```
