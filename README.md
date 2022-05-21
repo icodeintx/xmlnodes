@@ -2,6 +2,26 @@
 
 Traverse through an xml file and print a text representation of the nodes/attributes
 
+> Currently .Net Core 6.0
+
+```text
+Description:
+  App to parse XML nodes
+
+Usage:
+  xmlnodes [command] [options]
+
+Options:
+  --version       Show version information
+  -?, -h, --help  Show help and usage information
+
+Commands:
+  file <--file>  Parse xml in a local file
+  url <--url>    Parse xml from the web
+
+```
+
+
 The output below displays the nodes and attributes.
 
 ```text
