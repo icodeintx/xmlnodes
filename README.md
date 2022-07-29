@@ -31,6 +31,8 @@ The output below displays the nodes and attributes.
 
 ## output
 
+> Note: Blank line added between nodes
+
 ```text
 catalog > book >> id = bk101
 catalog > book > author = Gambardella, Matthew
