@@ -68,11 +68,15 @@ public class XmlNodes
     /// <param name="currentStack"></param>
     private void PrintOutNodesRecursive(XmlElement xmlElement, string currentStack)
     {
+        Console.WriteLine("");
+
         //loop attributes
         foreach (XmlAttribute xmlAttribute in xmlElement.Attributes)
         {
             Console.WriteLine("{0} >> {1} = {2}", currentStack, xmlAttribute.Name, xmlAttribute.Value);
         }
+
+        
 
         //loop nodes
         foreach (XmlNode xmlNode in xmlElement.ChildNodes)
