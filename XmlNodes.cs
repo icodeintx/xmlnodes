@@ -70,32 +70,47 @@ public class XmlNodes
     {
         Console.WriteLine("");
 
-        //loop attributes
-        foreach (XmlAttribute xmlAttribute in xmlElement.Attributes)
+        try
         {
-            Console.WriteLine("{0} >> {1} = {2}", currentStack, xmlAttribute.Name, xmlAttribute.Value);
-        }
+            //loop attributes
+            foreach (XmlAttribute xmlAttribute in xmlElement.Attributes)
+            {
+                Console.WriteLine("{0} >> {1} = {2}", currentStack, xmlAttribute.Name, xmlAttribute.Value);
+            }
 
+
+
+            //loop nodes
+            foreach (XmlNode xmlNode in xmlElement.ChildNodes)
+            {
+                XmlElement xmlChildElement = xmlNode as XmlElement;
+                XmlText xmlText = xmlNode as XmlText;
+
+                if (xmlText != null)
+                {
+                    //print the node to the console
+                    Console.WriteLine("{0} = {1}", currentStack, xmlText.Value);
+                }
+                else if (xmlNode.NodeType == XmlNodeType.CDATA)
+                {
+                    //here we found there is no value but there is InnerXML so travers that xml
+                    //clean up any \\r\\n from value
+                    string cleaned = xmlNode.Value.Replace("\r\n", "");
+                    Console.WriteLine($"{currentStack} = [[[{cleaned}]]]");
+                }
+
+                if (xmlChildElement != null)
+                {
+                    //recurse call ourself to traverse
+                    PrintOutNodesRecursive(xmlChildElement, currentStack + " > " + xmlChildElement.Name);
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.ToString());
+        }
         
-
-        //loop nodes
-        foreach (XmlNode xmlNode in xmlElement.ChildNodes)
-        {
-            XmlElement xmlChildElement = xmlNode as XmlElement;
-            XmlText xmlText = xmlNode as XmlText;
-
-            if (xmlText != null)
-            {
-                //print the node to the console
-                Console.WriteLine("{0} = {1}", currentStack, xmlText.Value);
-            }
-
-            if (xmlChildElement != null)
-            {
-                //recurse call ourself to traverse
-                PrintOutNodesRecursive(xmlChildElement, currentStack + " > " + xmlChildElement.Name);
-            }
-        }
     }
 
 }
