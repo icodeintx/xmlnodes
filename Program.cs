@@ -20,12 +20,12 @@ public class Program
 
         //create our file option
         var fileArgument = new Argument<FileInfo?>(
-            name: "--file", 
+            name: "file", 
             description: "The xml file to read and display on the console.");
 
         //create url option
         var urlArgument = new Argument<string>(
-            name: "--url", 
+            name: "url", 
             description: "The xml URL to read and display on the console.");
         
 

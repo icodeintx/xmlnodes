@@ -16,8 +16,8 @@ Options:
   -?, -h, --help  Show help and usage information
 
 Commands:
-  file <--file>  Parse xml in a local file
-  url <--url>    Parse xml from the web
+  file <file>  Parse xml in a local file
+  url <url>    Parse xml from the web
 
 ```
 
