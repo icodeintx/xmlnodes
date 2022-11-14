@@ -47,13 +47,12 @@ public class XmlNodes
         XmlDocument xmlDocument = new XmlDocument();
 
         xmlDocument.Load(url);
-        //xmlDocument.Load(file.FullName);
 
         //parse and print
         PrintOutNodesRecursive(xmlDocument.DocumentElement, xmlDocument.DocumentElement.Name);
 
         //return a blank for successful
-        return "";
+        return string.Empty;
     }
 
     /// <summary>
@@ -70,7 +69,6 @@ public class XmlNodes
             //loop attributes
             foreach (XmlAttribute xmlAttribute in xmlElement.Attributes)
             {
-                //Console.WriteLine("{0} >> {1} = {2}", currentStack, xmlAttribute.Name, xmlAttribute.Value);
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.Write($"{currentStack} >> ");
                 Console.ForegroundColor = ConsoleColor.Blue;
@@ -90,19 +88,17 @@ public class XmlNodes
                 if (xmlText != null)
                 {
                     //print the node to the console
-                    //Console.WriteLine("{0} = {1}", currentStack, xmlText.Value);
                     Console.ForegroundColor = ConsoleColor.White;
                     Console.Write($"{currentStack} ");
                     Console.Write($"= ");
                     Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.Write(xmlText.Value + Environment.NewLine);
+                    Console.Write(xmlText.Value);
                 }
                 else if (xmlNode.NodeType == XmlNodeType.CDATA)
                 {
                     //here we found there is no value but there is InnerXML so travers that xml
                     //clean up any \\r\\n from value
                     string cleaned = xmlNode.Value.Replace("\r\n", "");
-                    //Console.WriteLine($"{currentStack} = [[[{cleaned}]]]");
                     Console.ForegroundColor = ConsoleColor.White;
                     Console.Write($"{currentStack} ");
                     Console.Write($"= ");
