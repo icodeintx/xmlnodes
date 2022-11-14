@@ -62,7 +62,7 @@ public class XmlNodes
     /// <param name="currentStack"></param>
     private void PrintOutNodesRecursive(XmlElement xmlElement, string currentStack)
     {
-        Console.WriteLine("");
+        
 
         try
         {
@@ -76,7 +76,7 @@ public class XmlNodes
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.Write($"= ");
                 Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.Write(xmlAttribute.Value + Environment.NewLine);
+                Console.WriteLine(xmlAttribute.Value);
             }
 
             //loop nodes
@@ -92,7 +92,7 @@ public class XmlNodes
                     Console.Write($"{currentStack} ");
                     Console.Write($"= ");
                     Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.Write(xmlText.Value);
+                    Console.WriteLine(xmlText.Value);
                 }
                 else if (xmlNode.NodeType == XmlNodeType.CDATA)
                 {
@@ -103,7 +103,7 @@ public class XmlNodes
                     Console.Write($"{currentStack} ");
                     Console.Write($"= ");
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.Write($"[[[{cleaned}]]]");
+                    Console.WriteLine($"[[[{cleaned}]]]");
                 }
 
                 if (xmlChildElement != null)
